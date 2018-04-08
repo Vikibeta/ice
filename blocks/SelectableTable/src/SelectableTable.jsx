@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Table, Button, Icon, Pagination } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
 
-import './SelectableTable.scss';
-
 const getMockData = () => {
   const result = [];
   for (let i = 0; i < 10; i++) {
@@ -69,18 +67,12 @@ export default class SelectableTable extends Component {
     });
   };
 
-  addMoreItem = () => {
-    // todo add some item
-  };
-
   deleteSelectedKeys = () => {
     const { selectedRowKeys } = this.state;
-    // todo delete selectedRowKeys
     console.log('delete keys', selectedRowKeys);
   };
 
   deleteItem = (record) => {
-    // todo remove this record
     const { id } = record;
     console.log('delete item', id);
   };
@@ -104,18 +96,12 @@ export default class SelectableTable extends Component {
       <div className="selectable-table" style={styles.selectableTable}>
         <IceContainer style={styles.IceContainer}>
           <div>
-            <Button
-              onClick={this.addMoreItem}
-              size="small"
-              className="batch-btn"
-              style={styles.batchBtn}
-            >
+            <Button size="small" style={styles.batchBtn}>
               <Icon type="add" />增加
             </Button>
             <Button
               onClick={this.deleteSelectedKeys}
               size="small"
-              className="batch-btn"
               style={styles.batchBtn}
               disabled={!this.state.selectedRowKeys.length}
             >
@@ -124,7 +110,6 @@ export default class SelectableTable extends Component {
             <Button
               onClick={this.clearSelectedKeys}
               size="small"
-              className="batch-btn"
               style={styles.batchBtn}
             >
               <Icon type="close" />清空选中
@@ -145,7 +130,7 @@ export default class SelectableTable extends Component {
               selectedRowKeys: this.state.selectedRowKeys,
             }}
           >
-            <Table.Column title="编码" dataIndex="id" lock width={120} />
+            <Table.Column title="编码" dataIndex="id" width={120} />
             <Table.Column title="名称" dataIndex="title.name" width={350} />
             <Table.Column title="类型" dataIndex="type" width={160} />
             <Table.Column title="模板" dataIndex="template" width={160} />
@@ -170,9 +155,6 @@ export default class SelectableTable extends Component {
 }
 
 const styles = {
-  selectableTable: {
-    width: '960px',
-  },
   batchBtn: {
     marginRight: '10px',
   },

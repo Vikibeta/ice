@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Button, Step } from '@icedesign/base';
-import './SuccessDetail.scss';
 
 export default class SuccessDetail extends Component {
   static displayName = 'SuccessDetail';
@@ -75,7 +74,7 @@ const styles = {
     height: '40px',
   },
   title: {
-    margin: '0',
+    margin: 0,
   },
   summary: {
     marginBottom: '40px',

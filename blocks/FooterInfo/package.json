@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/footer-info-block",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -35,11 +35,12 @@
   },
   "blockConfig": {
     "name": "footer-info",
-    "snapshot": "https://img.alicdn.com/tfs/TB14GfWjhrI8KJjy0FpXXb5hVXa-2566-806.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1wHIrc_tYBeNjy1XdXXXXyVXa-2858-684.png",
     "themePackage": "@icedesign/skin",
     "title": "页脚信息展示",
     "categories": [
-      "info-display"
+      "信息展示",
+      "欢迎页"
     ]
   },
   "scripts": {

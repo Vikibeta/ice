@@ -1,18 +1,16 @@
-
-
 import React, { Component } from 'react';
-import { Input, Button } from '@icedesign/base';
+import { Input, Button, Grid, Feedback } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
-import './PrivateMessageForm.scss';
+
+const { Row, Col } = Grid;
+const Toast = Feedback.toast;
 
 export default class PrivateMessageForm extends Component {
   static displayName = 'PrivateMessageForm';
 
-  static propTypes = {
-  };
+  static propTypes = {};
 
-  static defaultProps = {
-  };
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -20,20 +18,6 @@ export default class PrivateMessageForm extends Component {
       title: '',
       message: '',
     };
-  }
-
-  // ICE: React Component 的生命周期
-
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillUnmount() {
-
   }
 
   titleChange = (title) => {
@@ -49,41 +33,65 @@ export default class PrivateMessageForm extends Component {
   };
 
   sendMessage = () => {
-    console.log(this.state);
+    const { title, message } = this.state;
+    if (title && message) {
+      Toast.success('发送成功');
+      return;
+    }
+    Toast.error('您还有未填项');
   };
 
   render() {
     return (
-      <div className="private-message-form" style={styles.privateMessageForm}>
-        <IceContainer style={styles.formCard}>
-          <div style={styles.title}>私有消息</div>
-          <div style={styles.subtitle}>给王明明发私有消息</div>
-          <div style={styles.groupTitle}>标题</div>
-          <div style={styles.inputWrap}>
-            <Input
-              style={styles.input}
-              value={this.state.title}
-              onChange={this.titleChange}
-              placeholder="请输入标题"
-            />
-          </div>
-          <div style={styles.groupTitle}>消息内容</div>
-          <div style={styles.textareaWrap}>
-            <Input
-              style={styles.textarea}
-              multiple
-              value={this.state.message}
-              onChange={this.messageChange}
-              placeholder="请输入内容"
-            />
-          </div>
-          <div style={styles.btnWrap}>
-            <Button type="primary" onClick={this.sendMessage}>发送消息</Button>
-          </div>
+      <div className="private-message-form">
+        <IceContainer title="私有消息">
+          <Row style={styles.formRow}>
+            <Col xxs="5" s="5" l="2">
+              标题
+            </Col>
+            <Col s="14" l="7">
+              <Input
+                style={{ width: '100%' }}
+                value={this.state.title}
+                onChange={this.titleChange}
+                placeholder="请输入标题"
+              />
+            </Col>
+          </Row>
+
+          <Row style={styles.formRow}>
+            <Col xxs="5" s="5" l="2">
+              消息内容
+            </Col>
+            <Col s="14" l="7">
+              <Input
+                style={{ width: '100%' }}
+                multiple
+                value={this.state.message}
+                onChange={this.messageChange}
+                placeholder="请输入内容"
+              />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col xxs="5" s="5" l="2">
+              {' '}
+            </Col>
+            <Col>
+              <Button type="primary" onClick={this.sendMessage}>
+                发送消息
+              </Button>
+            </Col>
+          </Row>
         </IceContainer>
       </div>
     );
   }
 }
 
-const styles = { formCard: { width: 518, paddingLeft: '30px' }, title: { fontSize: '16px', marginBottom: '10px', color: '#000', fontWeight: 'bold' }, subtitle: { color: '#000', fontSize: '14px', marginBottom: '30px' }, groupTitle: { marginBottom: '10px' }, input: { width: '332px', marginBottom: '20px' }, textarea: { width: '332px', heihgt: '85px' }, textareaWrap: { marginBottom: '20px' }, privateMessageForm: {} };
+const styles = {
+  formRow: {
+    marginBottom: '20px',
+  },
+};

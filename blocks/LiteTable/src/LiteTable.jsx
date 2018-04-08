@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Table } from '@icedesign/base';
-import './LiteTable.scss';
 
 const styles = {
-  tableCard: { width: 430, padding: 10 },
-  liteTable: {},
-  todo0: { color: '#5485F7' },
-  todo1: { color: '#64D874' },
-  todo2: { color: '#999999' },
-  todo3: { color: '#FA7070' },
+  processing: {
+    color: '#5485F7',
+  },
+  finish: {
+    color: '#64D874',
+  },
+  terminated: {
+    color: '#999999',
+  },
+  pass: {
+    color: '#FA7070',
+  },
 };
 
 const generatorMockStatus = () => {
@@ -28,7 +33,7 @@ const generatorMockStatus = () => {
 const generatorData = () => {
   return Array.from({ length: 10 }).map((item, index) => {
     return {
-      project: `这里是字数不能太长的项目名 ${index}`,
+      project: `项目名称 ${index}`,
       owner: `开发者 ${index}`,
       status: generatorMockStatus(),
     };
@@ -36,10 +41,10 @@ const generatorData = () => {
 };
 
 const statusComponents = {
-  processing: <span style={styles.todo0}>进行中</span>,
-  finish: <span style={styles.todo1}>已完成</span>,
-  terminated: <span style={styles.todo2}>已终止</span>,
-  pass: <span style={styles.todo3}>未通过</span>,
+  processing: <span style={styles.processing}>进行中</span>,
+  finish: <span style={styles.finish}>已完成</span>,
+  terminated: <span style={styles.terminated}>已终止</span>,
+  pass: <span style={styles.pass}>未通过</span>,
 };
 
 export default class LiteTable extends Component {
@@ -56,18 +61,6 @@ export default class LiteTable extends Component {
     };
   }
 
-  // ICE: React Component 的生命周期
-
-  componentWillMount() { }
-
-  componentDidMount() { }
-
-  shouldComponentUpdate() {
-    return true;
-  }
-
-  componentWillUnmount() { }
-
   renderStatus = (value) => {
     return statusComponents[value];
   };
@@ -75,16 +68,16 @@ export default class LiteTable extends Component {
   render() {
     const { tableData } = this.state;
     return (
-      <div className="lite-table" style={styles.liteTable}>
+      <div className="lite-table">
         <IceContainer style={styles.tableCard}>
           <Table dataSource={tableData} hasBorder={false}>
-            <Table.Column title="项目名称" dataIndex="project" width={160} />
-            <Table.Column title="创建者" dataIndex="owner" width={65} />
+            <Table.Column title="项目名称" dataIndex="project" width={200} />
+            <Table.Column title="创建者" dataIndex="owner" width={100} />
             <Table.Column
               title="状态"
               dataIndex="status"
               cell={this.renderStatus}
-              width={65}
+              width={100}
             />
           </Table>
         </IceContainer>

@@ -1,23 +1,21 @@
-
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import './SortCardList.scss';
+import { Grid } from '@icedesign/base';
 
-const stateBackgroundMap = {
-  0: '#F4F7FF',
-  1: '#FFFAE8',
-  2: '#EAFCF6',
-  3: '#FFF7F7',
+const { Row, Col } = Grid;
+
+const stateMap = {
+  0: { color: '#F4F7FF', text: '未开始' },
+  1: { color: '#FFFAE8', text: '进行中' },
+  2: { color: '#EAFCF6', text: '完成' },
 };
 
 export default class SortCardList extends Component {
   static displayName = 'SortCardList';
 
-  static propTypes = {
-  };
+  static propTypes = {};
 
-  static defaultProps = {
-  };
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -26,59 +24,68 @@ export default class SortCardList extends Component {
         {
           id: 1,
           state: 0,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
         {
           id: 2,
-          state: 1,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 0,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
         {
           id: 3,
-          state: 2,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 0,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
       ],
       doings: [
         {
           id: 1,
-          state: 0,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 1,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
         {
           id: 2,
           state: 1,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
         {
           id: 3,
-          state: 2,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 1,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
         {
           id: 4,
-          state: 2,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 1,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
         {
           id: 5,
-          state: 2,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 1,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
       ],
       dones: [
         {
           id: 2,
-          state: 1,
-          description: '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
+          state: 2,
+          description:
+            '这里是任务的描述，用简短的文字介绍任务的内容，最多可以展示两行的文字',
           datetime: '07-07  18:36',
         },
       ],
@@ -87,28 +94,23 @@ export default class SortCardList extends Component {
 
   // ICE: React Component 的生命周期
 
-  componentWillMount() {
+  componentWillMount() {}
 
-  }
+  componentDidMount() {}
 
-  componentDidMount() {
+  componentWillUnmount() {}
 
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  handleFinish = () => { };
+  handleFinish = () => {};
 
   renderItem = (item) => {
     return (
-      <div style={{
-        ...styles.cardItem,
-        ...{
-          backgroundColor: stateBackgroundMap[item.state],
-        },
-      }}
+      <div
+        style={{
+          ...styles.cardItem,
+          ...{
+            backgroundColor: stateMap[item.state].color,
+          },
+        }}
         key={item.id}
         draggable
       >
@@ -122,34 +124,36 @@ export default class SortCardList extends Component {
             />
             {item.datetime}
           </span>
-          <span style={styles.done} onClick={this.handleFinish}>完成</span>
+          <span style={styles.done} onClick={this.handleFinish}>
+            {stateMap[item.state].text}
+          </span>
         </div>
       </div>
     );
-  }
+  };
 
   render() {
-    const {
-      todos, doings, dones,
-    } = this.state;
+    const { todos, doings, dones } = this.state;
     return (
       <div className="sort-card-list">
         <IceContainer style={styles.cardContainer}>
-          <div style={styles.cardList}>
-            <div style={styles.title}>待办事项</div>
-            <div style={styles.subTitle}>在任务卡片间拖拽来排序</div>
-            {todos.map(this.renderItem)}
-          </div>
-          <div style={styles.cardList}>
-            <div style={styles.title}>进行中</div>
-            <div style={styles.subTitle}>在任务卡片间拖拽来排序</div>
-            {doings.map(this.renderItem)}
-          </div>
-          <div style={styles.cardList}>
-            <div style={styles.title}>已完成</div>
-            <div style={styles.subTitle}>在任务卡片间拖拽来排序</div>
-            {dones.map(this.renderItem)}
-          </div>
+          <Row wrap gutter={20}>
+            <Col xxs="24" s="8" l="8" style={styles.cardList}>
+              <div style={styles.title}>待办事项</div>
+              <div style={styles.subTitle}>在任务卡片间拖拽来排序</div>
+              {todos.map(this.renderItem)}
+            </Col>
+            <Col xxs="24" s="8" l="8" style={styles.cardList}>
+              <div style={styles.title}>进行中</div>
+              <div style={styles.subTitle}>在任务卡片间拖拽来排序</div>
+              {doings.map(this.renderItem)}
+            </Col>
+            <Col xxs="24" s="8" l="8" style={styles.cardList}>
+              <div style={styles.title}>已完成</div>
+              <div style={styles.subTitle}>在任务卡片间拖拽来排序</div>
+              {dones.map(this.renderItem)}
+            </Col>
+          </Row>
         </IceContainer>
       </div>
     );
@@ -167,15 +171,12 @@ const styles = {
   title: {
     fontSize: '16px',
     marginBottom: '10px',
-    color: '#000',
   },
   subTitle: {
     fontSize: '12px',
     marginBottom: '10px',
-    color: '#000',
   },
   cardItem: {
-    width: '324px',
     height: '80px',
     borderRadius: '4px',
     marginBottom: '10px',
@@ -189,14 +190,13 @@ const styles = {
   },
   desc: {
     fontSize: '12px',
-    color: '#000',
     marginBottom: '10px',
-    height: '35px',
+    height: '36px',
+    lineHeight: '18px',
     overflow: 'hidden',
   },
   done: {
     fontSize: '12px',
-    color: '#000',
     position: 'absolute',
     right: '16px',
     bottom: '10px',

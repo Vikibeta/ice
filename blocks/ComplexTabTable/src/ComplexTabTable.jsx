@@ -1,10 +1,11 @@
 /* eslint no-underscore-dangle:0 */
 import React, { Component } from 'react';
-import { Table, Pagination, Tab, DatePicker, Search } from '@icedesign/base';
+import { Table, Pagination, Tab, Search } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
 import IceImg from '@icedesign/img';
 import DataBinder from '@icedesign/data-binder';
 import IceLabel from '@icedesign/label';
+import { enquireScreen } from 'enquire-js';
 import SubCategoryItem from './SubCategoryItem';
 import './ComplexTabTable.scss';
 
@@ -33,6 +34,7 @@ export default class ComplexTabTable extends Component {
 
     this.queryCache = {};
     this.state = {
+      isMobile: false,
       currentTab: 'solved',
       currentCategory: '1',
       tabList: [
@@ -106,9 +108,20 @@ export default class ComplexTabTable extends Component {
   }
 
   componentDidMount() {
+    this.enquireScreenRegister();
     this.queryCache.page = 1;
     this.fetchData();
   }
+
+  enquireScreenRegister = () => {
+    const mediaCondition = 'only screen and (max-width: 720px)';
+
+    enquireScreen((mobile) => {
+      this.setState({
+        isMobile: mobile,
+      });
+    }, mediaCondition);
+  };
 
   fetchData = () => {
     this.props.updateBindingData('tableData', {
@@ -129,22 +142,24 @@ export default class ComplexTabTable extends Component {
 
   editItem = (record, e) => {
     e.preventDefault();
-    // todo
+    // TODO: record 为该行所对应的数据，可自定义操作行为
   };
 
   renderOperations = (value, index, record) => {
     return (
-      <div
-        className="complex-tab-table-operation"
-        style={styles.complexTabTableOperation}
-      >
-        <a href="#" target="_blank" onClick={this.editItem.bind(this, record)}>
+      <div style={styles.complexTabTableOperation}>
+        <a
+          href="#"
+          style={styles.operation}
+          target="_blank"
+          onClick={this.editItem.bind(this, record)}
+        >
           解决
         </a>
-        <a href="#" target="_blank">
+        <a href="#" style={styles.operation} target="_blank">
           详情
         </a>
-        <a href="#" target="_blank">
+        <a href="#" style={styles.operation} target="_blank">
           分类
         </a>
       </div>
@@ -178,22 +193,26 @@ export default class ComplexTabTable extends Component {
     this.fetchData();
   };
 
-  onDateChange = (date, strDate) => {
-    this.queryCache.date = strDate;
-    this.fetchData();
-  };
-
-  onSearch = (value) => {
-    this.queryCache.keywords = value.key;
-    this.fetchData();
-  };
-
   onSubCategoryClick = (catId) => {
     this.setState({
       currentCategory: catId,
     });
     this.queryCache.catId = catId;
     this.fetchData();
+  };
+
+  renderTabBarExtraContent = () => {
+    return (
+      <div style={styles.tabExtra}>
+        <Search
+          style={styles.search}
+          type="secondary"
+          placeholder="搜索"
+          searchText=""
+          onSearch={this.onSearch}
+        />
+      </div>
+    );
   };
 
   render() {
@@ -209,51 +228,41 @@ export default class ComplexTabTable extends Component {
             type="bar"
             currentTab={this.state.currentTab}
             contentStyle={{
-              padding: '4px 0 0 0',
+              padding: 0,
             }}
             tabBarExtraContent={
-              <div style={styles.tabExtra}>
-                <DatePicker onChange={this.onDateChange} />
-                <Search
-                  style={styles.search}
-                  type="normal"
-                  inputWidth={150}
-                  placeholder="搜索"
-                  searchText=""
-                  onSearch={this.onSearch}
-                />
-              </div>
+              !this.state.isMobile ? this.renderTabBarExtraContent() : null
             }
           >
             {tabList && tabList.length > 0
               ? tabList.map((tab) => {
-                return (
-                  <Tab.TabPane
-                    key={tab.type}
-                    tab={
-                      <span>
-                        {tab.text}{' '}
-                        <span style={styles.tabCount}>{tab.count}</span>
-                      </span>
-                    }
-                  >
-                    {tab.subCategories && tab.subCategories.length > 0
-                      ? tab.subCategories.map((catItem, index) => {
-                        return (
-                          <SubCategoryItem
-                            {...catItem}
-                            isCurrent={
-                              catItem.id === this.state.currentCategory
-                            }
-                            onItemClick={this.onSubCategoryClick}
-                            key={index}
-                          />
-                        );
-                      })
-                      : null}
-                  </Tab.TabPane>
-                );
-              })
+                  return (
+                    <Tab.TabPane
+                      key={tab.type}
+                      tab={
+                        <span>
+                          {tab.text}
+                          <span style={styles.tabCount}>{tab.count}</span>
+                        </span>
+                      }
+                    >
+                      {tab.subCategories && tab.subCategories.length > 0
+                        ? tab.subCategories.map((catItem, index) => {
+                            return (
+                              <SubCategoryItem
+                                {...catItem}
+                                isCurrent={
+                                  catItem.id === this.state.currentCategory
+                                }
+                                onItemClick={this.onSubCategoryClick}
+                                key={index}
+                              />
+                            );
+                          })
+                        : null}
+                    </Tab.TabPane>
+                  );
+                })
               : null}
           </Tab>
         </IceContainer>
@@ -304,11 +313,34 @@ export default class ComplexTabTable extends Component {
 }
 
 const styles = {
-  complexTabTableOperation: { lineHeight: '28px' },
-  titleWrapper: { display: 'flex', flexDirection: 'row' },
-  title: { marginLeft: '10px', lineHeight: '20px' },
-  tabExtra: { display: 'flex', alignItems: 'center' },
-  search: { marginLeft: 10 },
-  tabCount: { color: '#3080FE' },
-  pagination: { textAlign: 'right', paddingTop: '26px' },
+  complexTabTableOperation: {
+    lineHeight: '28px',
+  },
+  titleWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  title: {
+    marginLeft: '10px',
+    lineHeight: '20px',
+  },
+  operation: {
+    marginRight: '12px',
+    textDecoration: 'none',
+  },
+  tabExtra: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  search: {
+    marginLeft: 10,
+  },
+  tabCount: {
+    marginLeft: '5px',
+    color: '#3080FE',
+  },
+  pagination: {
+    textAlign: 'right',
+    paddingTop: '26px',
+  },
 };

@@ -1,12 +1,9 @@
 /* eslint no-underscore-dangle: 0 */
 import React, { Component } from 'react';
 import { Table, Pagination } from '@icedesign/base';
-
 import IceContainer from '@icedesign/container';
-import IceImg from '@icedesign/img';
 import DataBinder from '@icedesign/data-binder';
 import IceLabel from '@icedesign/label';
-
 import FilterForm from './Filter';
 
 @DataBinder({
@@ -53,9 +50,6 @@ export default class EnhanceTable extends Component {
   renderTitle = (value, index, record) => {
     return (
       <div style={styles.titleWrapper}>
-        <div>
-          <IceImg src={record.cover} width={48} height={48} />
-        </div>
         <span style={styles.title}>{record.title}</span>
       </div>
     );
@@ -63,7 +57,7 @@ export default class EnhanceTable extends Component {
 
   editItem = (record, e) => {
     e.preventDefault();
-    // todo
+    // TODO: record 为该行所对应的数据，可自定义操作行为
   };
 
   renderOperations = (value, index, record) => {
@@ -131,7 +125,7 @@ export default class EnhanceTable extends Component {
 
     return (
       <div className="filter-table">
-        <IceContainer style={styles.cardWrapper}>
+        <IceContainer title="内容筛选">
           <FilterForm
             value={filterFormValue}
             onChange={this.filterFormChange}
@@ -171,7 +165,7 @@ export default class EnhanceTable extends Component {
               cell={this.renderOperations}
             />
           </Table>
-          <div style={styles.todo4}>
+          <div style={styles.paginationWrapper}>
             <Pagination
               current={tableData.currentPage}
               pageSize={tableData.pageSize}
@@ -186,18 +180,24 @@ export default class EnhanceTable extends Component {
 }
 
 const styles = {
-  filterTableOperation: { lineHeight: '28px' },
+  filterTableOperation: {
+    lineHeight: '28px',
+  },
   operationItem: {
     marginRight: '12px',
     textDecoration: 'none',
+    color: '#5485F7',
   },
-  titleWrapper: { display: 'flex', flexDirection: 'row' },
-  title: { marginLeft: '10px', lineHeight: '20px' },
-  cardWrapper: {
-    minHeight: 0,
-    marginBottom: 20,
+  titleWrapper: {
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
-  todo4: { textAlign: 'right', paddingTop: '26px' },
+  title: {
+    marginLeft: '10px',
+    lineHeight: '20px',
+  },
+  paginationWrapper: {
+    textAlign: 'right',
+    paddingTop: '26px',
+  },
 };

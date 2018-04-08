@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
-import './OrderList.scss';
 
 export default class OrderList extends Component {
   static displayName = 'OrderList';
@@ -44,12 +43,7 @@ export default class OrderList extends Component {
   renderOrderInfo = (product) => {
     return (
       <div className="order-info" style={styles.orderInfo}>
-        <img
-          src={product[0].avatar}
-          className="order-img"
-          style={styles.orderImg}
-          alt="头像"
-        />
+        <img src={product[0].avatar} style={styles.orderImg} alt="头像" />
         <div className="order-description" style={styles.orderDescription}>
           {product[0].description}
         </div>
@@ -85,7 +79,7 @@ export default class OrderList extends Component {
    */
   renderOperation = () => {
     return (
-      <a href="/" className="order-detail-link" style={styles.orderDetailLink}>
+      <a href="/" style={styles.orderDetailLink}>
         查看
       </a>
     );
@@ -109,20 +103,19 @@ export default class OrderList extends Component {
 
     return (
       <div className="order-list" style={styles.orderList}>
-        <IceContainer>
-          <div className="order-list-head" style={styles.orderListHead}>
-            订单列表
-          </div>
+        <IceContainer title="订单列表">
           <Table
             dataSource={tableData}
             getRowClassName={this.getRowClassName}
             rowSelection={rowSelection}
+            hasBorder={false}
           >
             <Table.GroupHeader cell={this.renderOrderNumber} />
             <Table.Column
               cell={this.renderOrderInfo}
               title="商品"
               dataIndex="product"
+              width={400}
             />
             <Table.Column
               cell={this.renderOrderPrice}
@@ -149,7 +142,7 @@ const styles = {
     float: 'left',
     marginRight: '10px',
   },
-  orderDetailLink: { textDecoration: 'none' },
-  orderList: {},
-  orderListHead: { marginBottom: '20px', color: '#666' },
+  orderDetailLink: {
+    textDecoration: 'none',
+  },
 };

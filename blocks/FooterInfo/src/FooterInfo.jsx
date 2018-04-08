@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Grid } from '@icedesign/base';
+
+const { Row, Col } = Grid;
 
 export default class FooterInfo extends Component {
   static displayName = 'FooterInfo';
@@ -16,51 +19,59 @@ export default class FooterInfo extends Component {
     return (
       <div className="footer-info" style={styles.container}>
         <div style={styles.items}>
-          <div style={styles.item}>
-            <h2 style={styles.itemTitle}>产品介绍</h2>
-            <ul style={styles.nav}>
-              <li style={styles.navItem}>
-                <a style={styles.navLink} href="/">
-                  组件
-                </a>
-              </li>
-              <li style={styles.navItem}>
-                <a style={styles.navLink} href="/">
-                  模块
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div style={styles.item}>
-            <h2 style={styles.itemTitle}>合作伙伴</h2>
-            <ul style={styles.nav}>
-              <li style={styles.navItem}>
-                <a style={styles.navLink} href="/">
-                  淘宝
-                </a>
-              </li>
-              <li style={styles.navItem}>
-                <a style={styles.navLink} href="/">
-                  天猫
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div style={{ ...styles.item, marginRight: '0' }}>
-            <h2 style={styles.itemTitle}>关注我们</h2>
-            <ul style={styles.nav}>
-              <li style={styles.navItem}>
-                <a style={styles.navLink} href="/">
-                  新浪微博
-                </a>
-              </li>
-              <li style={styles.navItem}>
-                <a style={styles.navLink} href="/">
-                  微信公众号
-                </a>
-              </li>
-            </ul>
-          </div>
+          <Row wrap gutter="20">
+            <Col xxs="24" s="8" l="8">
+              <div style={styles.item}>
+                <h2 style={styles.itemTitle}>产品介绍</h2>
+                <ul style={styles.nav}>
+                  <li style={styles.navItem}>
+                    <a style={styles.navLink} href="/">
+                      组件
+                    </a>
+                  </li>
+                  <li style={styles.navItem}>
+                    <a style={styles.navLink} href="/">
+                      模块
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xxs="24" s="8" l="8">
+              <div style={styles.item}>
+                <h2 style={styles.itemTitle}>合作伙伴</h2>
+                <ul style={styles.nav}>
+                  <li style={styles.navItem}>
+                    <a style={styles.navLink} href="/">
+                      淘宝
+                    </a>
+                  </li>
+                  <li style={styles.navItem}>
+                    <a style={styles.navLink} href="/">
+                      天猫
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xxs="24" s="8" l="8">
+              <div style={styles.item}>
+                <h2 style={styles.itemTitle}>关注我们</h2>
+                <ul style={styles.nav}>
+                  <li style={styles.navItem}>
+                    <a style={styles.navLink} href="/">
+                      新浪微博
+                    </a>
+                  </li>
+                  <li style={styles.navItem}>
+                    <a style={styles.navLink} href="/">
+                      微信公众号
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+          </Row>
         </div>
         <p style={styles.copyRight}>© 2017 Taobao FED</p>
       </div>
@@ -69,26 +80,32 @@ export default class FooterInfo extends Component {
 }
 
 const styles = {
-  container: { background: '#1861D5', padding: '80px 0' },
+  container: {
+    background: '#1861D5',
+    padding: '80px 0',
+    width: '100%',
+  },
   items: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    width: '1080px',
+    maxWidth: '1080px',
     margin: '0 auto',
   },
   item: {
-    width: '30%',
-    padding: '20px 30px 60px',
-    marginRight: '5%',
-    borderRadius: '6px',
+    padding: '20px 30px',
     textAlign: 'center',
   },
-  itemTitle: { margin: '20px 0', color: '#fff', fontSize: '24px' },
+  itemTitle: {
+    margin: '0 0 10px',
+    color: '#fff',
+    fontSize: '24px',
+  },
   navLink: {
     display: 'block',
     height: '32px',
     lineHeight: '32px',
     color: '#E1EEFF',
   },
-  copyRight: { color: '#fff', textAlign: 'center' },
+  copyRight: {
+    color: '#fff',
+    textAlign: 'center',
+  },
 };

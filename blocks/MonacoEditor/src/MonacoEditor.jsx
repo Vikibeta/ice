@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import Monaco from 'react-monaco-editor';
@@ -10,8 +8,7 @@ function getScript(uri) {
   return new Promise((resolve, reject) => {
     const el = document.createElement('script');
     el.type = 'text/javascript';
-    const head = document.head ||
-      document.head.getElementsByTagName('head')[0];
+    const head = document.head || document.head.getElementsByTagName('head')[0];
     el.onerror = function onerror(e) {
       reject(new URIError(`${uri} could not be loaded`), e);
     };
@@ -26,11 +23,9 @@ function getScript(uri) {
 export default class MonacoEditor extends Component {
   static displayName = 'MonacoEditor';
 
-  static propTypes = {
-  };
+  static propTypes = {};
 
-  static defaultProps = {
-  };
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -40,11 +35,12 @@ export default class MonacoEditor extends Component {
   }
 
   // ICE: React Component 的生命周期
-
   async componentWillMount() {
-    const vsBasePath = '//unpkg.com/monaco-editor@0.10.1/min/vs';
+    const vsBasePath = 'https://cdn.bootcss.com/monaco-editor/0.10.1/min/vs';
 
-    await getScript(`${vsBasePath}/loader.js`);
+    if (!window.require) {
+      await getScript(`${vsBasePath}/loader.js`);
+    }
     const monacoRequire = window.require;
     monacoRequire.config({ paths: { vs: vsBasePath } });
     // monaco editor 的跨域解决方案：https://github.com/Microsoft/monaco-editor#integrate-cross-domain
@@ -58,14 +54,6 @@ export default class MonacoEditor extends Component {
         monacoReady: true,
       });
     });
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillUnmount() {
-
   }
 
   onChange = (newValue, e) => {
@@ -85,14 +73,18 @@ function foo() {
 `;
     const options = {
       selectOnLineNumbers: true,
+      automaticLayout: true,
     };
     const { monacoReady } = this.state;
 
     return (
-      <div className="monaco-editor-container" style={styles.monacoEditorContainer}>
+      <div
+        className="monaco-editor-container"
+        style={styles.monacoEditorContainer}
+      >
         <IceContainer style={styles.container}>
-          {
-            monacoReady ? <Monaco
+          {monacoReady ? (
+            <Monaco
               height="600"
               language="javascript"
               theme="vs-dark"
@@ -100,8 +92,10 @@ function foo() {
               options={options}
               onChange={this.onChange}
               editorDidMount={this.editorDidMount}
-            /> : 'loading...'
-          }
+            />
+          ) : (
+            'loading...'
+          )}
         </IceContainer>
       </div>
     );

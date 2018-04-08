@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import IceContainer from '@icedesign/container';
 import { Chart, Geom, Axis, Tooltip } from 'bizcharts';
-import './ChartPoint.scss';
 
 export default class ChartPoint extends Component {
   static displayName = 'ChartPoint';
@@ -37,7 +36,12 @@ export default class ChartPoint extends Component {
       <div className="chart-point">
         <IceContainer>
           <h4 style={styles.title}>点图</h4>
-          <Chart height={400} data={this.state.data} forceFit>
+          <Chart
+            height={400}
+            data={this.state.data}
+            forceFit
+            padding={[20, 20, 40, 40]}
+          >
             <Tooltip
               showTitle={false}
               crosshairs={{ type: 'cross' }}

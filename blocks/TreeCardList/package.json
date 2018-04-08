@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/tree-card-list-block",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "树形卡片列表",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -35,11 +35,11 @@
   },
   "blockConfig": {
     "name": "tree-card-list",
-    "snapshot": "https://img.alicdn.com/tfs/TB1lJIelhTI8KJjSspiXXbM4FXa-1014-780.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1EQrXcAyWBuNjy0FpXXassXXa-2310-694.png",
     "themePackage": "@icedesign/skin",
     "title": "树形卡片列表",
     "categories": [
-      "list"
+      "列表"
     ]
   },
   "scripts": {

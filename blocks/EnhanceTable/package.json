@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/enhance-table-block",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "description": "附带简单表单筛选功能的增强筛选表单",
   "main": "lib/index.js",
   "files": [
@@ -23,11 +23,12 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "@icedesign/data-binder": "^0.1.0",
     "@icedesign/img": "^0.1.0",
     "@icedesign/label": "^0.1.0",
+    "enquire-js": "^0.1.2",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
@@ -38,11 +39,11 @@
   },
   "blockConfig": {
     "name": "enhance-table",
-    "snapshot": "https://img.alicdn.com/tfs/TB1viRoixrI8KJjy0FpXXb5hVXa-1896-1134.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1tcwsbVOWBuNjy0FiXXXFxVXa-2326-1308.png",
     "themePackage": "@icedesign/skin",
     "title": "增强筛选表单",
     "categories": [
-      "table"
+      "表格"
     ]
   },
   "scripts": {

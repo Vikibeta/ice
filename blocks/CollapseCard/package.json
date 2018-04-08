@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/collapse-card-block",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "折叠型卡片的信息展示",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8"
@@ -35,11 +35,11 @@
   },
   "blockConfig": {
     "name": "collapse-card",
-    "snapshot": "https://img.alicdn.com/tfs/TB1NXIUh2DH8KJjy1XcXXcpdXXa-956-270.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1dcIQckyWBuNjy0FpXXassXXa-2350-560.png",
     "themePackage": "@icedesign/skin",
     "title": "折叠型卡片的信息展示",
     "categories": [
-      "info-display"
+      "信息展示"
     ]
   },
   "scripts": {

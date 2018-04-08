@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/operation-table-block",
-  "version": "0.1.4",
+  "version": "0.1.15",
   "description": "附带操作按钮的表格",
   "main": "lib/index.js",
   "files": [
@@ -23,10 +23,10 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "@icedesign/data-binder": "^0.1.0",
-    "@icedesign/form-binder": "^0.1.0",
+    "@icedesign/form-binder": "^0.1.3",
     "@icedesign/img": "^0.1.0",
     "@icedesign/label": "^0.1.0",
     "prop-types": "^15.5.8"
@@ -39,11 +39,11 @@
   },
   "blockConfig": {
     "name": "operation-table",
-    "snapshot": "https://img.alicdn.com/tfs/TB17r2OilfH8KJjy1XbXXbLdXXa-1908-1482.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1X4awcntYBeNjy1XdXXXXyVXa-2326-1476.png",
     "themePackage": "@icedesign/skin",
     "title": "附带操作的表格",
     "categories": [
-      "table"
+      "表格"
     ]
   },
   "scripts": {

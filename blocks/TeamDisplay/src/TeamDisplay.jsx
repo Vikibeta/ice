@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './TeamDisplay.scss';
+import { Grid } from '@icedesign/base';
+
+const { Row, Col } = Grid;
 
 const generatorData = (count) => {
   return Array.from({ length: count }).map((item, index) => {
@@ -25,17 +27,23 @@ export default class TeamDisplay extends Component {
     return (
       <div className="team-display" style={styles.container}>
         <h2 style={styles.title}>我们的团队</h2>
-        <div style={styles.items}>
+        <Row wrap>
           {data.map((item, index) => {
             return (
-              <div style={styles.item} key={index}>
-                <img src={item.imgUrl} style={styles.avatar} alt={item.name} />
-                <h5 style={styles.name}>{item.name}</h5>
-                <p style={styles.description}>{item.description}</p>
-              </div>
+              <Col xxs="12" s="8" l="8" key={index}>
+                <div style={styles.item}>
+                  <img
+                    src={item.imgUrl}
+                    style={styles.avatar}
+                    alt={item.name}
+                  />
+                  <h5 style={styles.name}>{item.name}</h5>
+                  <p style={styles.description}>{item.description}</p>
+                </div>
+              </Col>
             );
           })}
-        </div>
+        </Row>
       </div>
     );
   }
@@ -43,23 +51,14 @@ export default class TeamDisplay extends Component {
 
 const styles = {
   container: {
-    width: '1080px',
+    width: '100%',
+    maxWidth: '1080px',
     margin: '0 auto',
     padding: '80px 0',
   },
   title: {
     textAlign: 'center',
     fontSize: '28px',
-  },
-  items: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  item: {
-    width: '33%',
-    padding: '0 40px',
-    margin: '40px 0',
-    textAlign: 'center',
   },
   name: {
     fontWeight: 'bold',
@@ -68,5 +67,9 @@ const styles = {
   avatar: {
     width: '150px',
     height: '150px',
+  },
+  description: {
+    lineHeight: '22px',
+    color: '#999',
   },
 };

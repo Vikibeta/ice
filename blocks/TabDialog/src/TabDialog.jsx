@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { Dialog, Tab, Table, Button } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
-import './TabDialog.scss';
 
 const TabPane = Tab.TabPane;
 
@@ -117,7 +116,9 @@ export default class TabDialog extends Component {
             </Tab>
           </div>
         </Dialog>
-        <Button type="primary" onClick={this.showDialog}>显示 Dialog</Button>
+        <Button type="primary" onClick={this.showDialog}>
+          显示 Dialog
+        </Button>
       </IceContainer>
     );
   }
@@ -137,4 +138,3 @@ const styles = {
     fontSize: '20px',
   },
 };
-

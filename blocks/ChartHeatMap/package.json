@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/chart-heat-map-block",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "",
   "files": [
     "src/",
@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@antv/data-set": "^0.8.0",
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "bizcharts": "^3.0.5",
     "prop-types": "^15.5.8"
@@ -36,11 +36,11 @@
   },
   "blockConfig": {
     "name": "chart-heat-map",
-    "snapshot": "https://img.alicdn.com/tfs/TB1W_FoixrI8KJjy0FpXXb5hVXa-1906-1222.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1oUBKcwmTBuNjy1XbXXaMrVXa-2348-1036.png",
     "themePackage": "@icedesign/skin",
     "title": "色块图",
     "categories": [
-      "chart"
+      "图表"
     ]
   },
   "scripts": {

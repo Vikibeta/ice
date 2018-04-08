@@ -1,9 +1,6 @@
-
-
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Pagination } from '@icedesign/base';
-import './SystemNoticeList.scss';
 
 const dataSource = [
   {
@@ -73,7 +70,9 @@ export default class SystemNoticeList extends Component {
                       {item.title}
                     </a>
                     {item.tag && (
-                      <span className={`${item.tag}`} style={styles.noticeTag}>
+                      <span
+                        style={{ ...styles.noticeTag, ...styles[item.tag] }}
+                      >
                         {dict[item.tag]}
                       </span>
                     )}
@@ -83,7 +82,7 @@ export default class SystemNoticeList extends Component {
               })}
             </ul>
           </div>
-          <div style={styles.todo0}>
+          <div style={styles.paginationWrap}>
             <Pagination
               shape="arrow-only"
               current={this.state.current}
@@ -98,8 +97,8 @@ export default class SystemNoticeList extends Component {
 
 const styles = {
   title: {
-    margin: '0',
-    fontSize: '16px',
+    margin: '0 0 10px',
+    fontSize: '18px',
   },
   noticeList: {
     margin: 0,
@@ -108,12 +107,13 @@ const styles = {
   noticeItem: {
     position: 'relative',
     padding: '12px 0',
+    paddingRight: '65px',
     listStyle: 'none',
     borderBottom: '1px solid #F4F4F4',
   },
   noticeTitle: {
     fontSize: '14px',
-    color: '#333',
+    color: '#666',
     textDecoration: 'none',
   },
   noticeTag: {
@@ -124,9 +124,25 @@ const styles = {
   },
   noticeTime: {
     position: 'absolute',
-    right: '0',
+    right: '0px',
     top: '15px',
     fontSize: '12px',
     color: '#999',
+  },
+  paginationWrap: {
+    marginTop: '20px',
+    textAlign: 'right',
+  },
+  up: {
+    color: '#4296ff',
+    background: '#eff6ff',
+  },
+  new: {
+    color: '#fca61c',
+    background: '#fff4e2',
+  },
+  hot: {
+    color: '#f86d6d',
+    background: '#ffe8e8',
   },
 };

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Table, Pagination, Progress, Button } from '@icedesign/base';
 import DataBinder from '@icedesign/data-binder';
-
-import './ComplexProgressTable.scss';
 import EditDialog from './EditDialog';
 
 @DataBinder({
@@ -41,7 +39,7 @@ export default class ComplexProgressTable extends Component {
 
   // ICE: React Component 的生命周期
 
-  componentWillMount() { }
+  componentWillMount() {}
 
   componentDidMount() {
     this.queryCache.page = 1;
@@ -78,8 +76,7 @@ export default class ComplexProgressTable extends Component {
         EditDialog.hide();
       },
       onOk: (value) => {
-        // 获取修改后的数据，更新表格
-        // todo 更新接口，并重新刷新数据
+        // TODO: 更新接口，并重新获取数据
         // this.props.updateBindingData('updateRow', {
         //   method: 'post',
         //   data: value
@@ -167,12 +164,26 @@ export default class ComplexProgressTable extends Component {
 }
 
 const styles = {
-  tableCard: { padding: '10px' },
-  title: {},
-  subTitle: { marginTop: '4px', fontSize: '12px', color: '#999999' },
-  operationButton: { marginRight: '10px' },
-  priority: { width: '70px', textAlign: 'center' },
-  complexProgressTable: {},
-  operations: { lineHeight: '28px' },
-  pagination: { textAlign: 'right', paddingTop: '26px' },
+  tableCard: {
+    padding: '10px',
+  },
+  subTitle: {
+    marginTop: '4px',
+    fontSize: '12px',
+    color: '#999999',
+  },
+  operationButton: {
+    marginRight: '10px',
+  },
+  priority: {
+    width: '70px',
+    textAlign: 'center',
+  },
+  operations: {
+    lineHeight: '28px',
+  },
+  pagination: {
+    textAlign: 'right',
+    paddingTop: '26px',
+  },
 };

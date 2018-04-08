@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/feature-display-block",
-  "version": "0.1.5",
+  "version": "0.1.10",
   "description": "",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -34,11 +34,12 @@
   },
   "blockConfig": {
     "name": "feature-display",
-    "snapshot": "https://img.alicdn.com/tfs/TB1W3vQi3vD8KJjy0FlXXagBFXa-1914-1522.png",
+    "snapshot": "https://gw.alicdn.com/tfs/TB1StEQaqmWBuNjy1XaXXXCbXXa-1756-1464.png",
     "themePackage": "@icedesign/skin",
     "title": "功能特点展示",
     "categories": [
-      "info-display"
+      "信息展示",
+      "欢迎页"
     ]
   },
   "scripts": {

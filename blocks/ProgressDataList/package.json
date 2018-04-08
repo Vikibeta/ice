@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/progress-data-list-block",
-  "version": "0.1.1",
+  "version": "0.1.6",
   "description": "进度条数据列表展示",
   "files": [
     "src/",
@@ -26,8 +26,9 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.1",
+    "enquire-js": "^0.1.2",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
@@ -41,9 +42,9 @@
     "snapshot": "https://img.alicdn.com/tfs/TB1OUVDnwvD8KJjy0FlXXagBFXa-1900-338.png",
     "title": "进度条数据列表",
     "categories": [
-      "chart",
-      "list",
-      "data-display"
+      "图表",
+      "列表",
+      "数据展示"
     ],
     "themePackage": "@icedesign/skin"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/area-stack-chart-block",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "叠加面积图",
   "main": "src/index.js",
   "files": [
@@ -23,7 +23,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "bizcharts": "^3.0.5",
     "classnames": "^2.2.5",
@@ -41,7 +41,7 @@
     "themePackage": "@icedesign/skin",
     "title": "叠加面积图",
     "categories": [
-      "chart"
+      "图表"
     ]
   },
   "scripts": {

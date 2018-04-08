@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Chart, Axis, Geom, Tooltip } from 'bizcharts';
 import { DataSet } from '@antv/data-set';
 import IceContainer from '@icedesign/container';
-import './ChartTypeLine.scss';
 
 export default class ChartTypeLine extends Component {
   static displayName = 'ChartTypeLine';
@@ -57,7 +56,10 @@ export default class ChartTypeLine extends Component {
           <h4 style={styles.title}>折线图</h4>
           <Chart height={400} data={dv} scale={cols} forceFit>
             <Axis name="month" />
-            <Axis name="temperature" label={{ formatter: val => `${val}°C` }} />
+            <Axis
+              name="temperature"
+              label={{ formatter: (val) => `${val}°C` }}
+            />
             <Tooltip crosshairs={{ type: 'y' }} />
             <Geom
               type="line"

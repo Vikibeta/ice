@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/filter-table-block",
-  "version": "0.1.4",
+  "version": "0.1.15",
   "description": "附带筛选工具条的表格",
   "files": [
     "src/",
@@ -22,10 +22,10 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "@icedesign/data-binder": "^0.1.0",
-    "@icedesign/form-binder": "^0.1.0",
+    "@icedesign/form-binder": "^0.1.3",
     "@icedesign/img": "^0.1.0",
     "@icedesign/label": "^0.1.0",
     "prop-types": "^15.5.8"
@@ -38,11 +38,11 @@
   },
   "blockConfig": {
     "name": "filter-table",
-    "snapshot": "https://img.alicdn.com/tfs/TB1kD3JinvI8KJjSspjXXcgjXXa-1926-1536.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1PaawcntYBeNjy1XdXXXXyVXa-2370-1528.png",
     "themePackage": "@icedesign/skin",
     "title": "支持筛选的表格",
     "categories": [
-      "table"
+      "表格"
     ]
   },
   "scripts": {

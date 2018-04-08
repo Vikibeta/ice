@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/order-list-block",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "订单型列表",
   "main": "lib/index.js",
   "files": [
@@ -23,13 +23,13 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "axios": "^0.17.1",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
-    "@icedesign/demo-layout": "^0.1.0",
+    "@icedesign/demo-layout": "^0.1.7",
     "@icedesign/skin": "^0.1.2",
     "react": "*",
     "react-dom": "*"
@@ -40,7 +40,7 @@
     "themePackage": "@icedesign/skin",
     "title": "订单型列表",
     "categories": [
-      "list"
+      "列表"
     ]
   },
   "scripts": {

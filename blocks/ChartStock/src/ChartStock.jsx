@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
 import { DataView } from '@antv/data-set';
 import IceContainer from '@icedesign/container';
-import './ChartStock.scss';
 
 export default class ChartStock extends Component {
   static displayName = 'ChartStock';
@@ -73,7 +72,13 @@ export default class ChartStock extends Component {
       <div className="chart-stock">
         <IceContainer>
           <h4 style={styles.title}>面积图</h4>
-          <Chart height={400} data={dv} scale={cols} forceFit>
+          <Chart
+            height={400}
+            data={dv}
+            scale={cols}
+            forceFit
+            padding={[10, 20, 40, 40]}
+          >
             <Axis name="mean" visible={false} />
             <Legend />
             <Axis name="stockRange" visible={false} />

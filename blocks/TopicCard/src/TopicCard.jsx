@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import './TopicCard.scss';
 
 const dataSource = [
   {
@@ -31,13 +30,6 @@ const dataSource = [
     down: '100',
     icon: '//img.alicdn.com/tfs/TB1dTaIgRTH8KJjy0FiXXcRsXXa-120-120.png',
   },
-  {
-    meta: '话题曝光',
-    total: '56799',
-    up: '100',
-    down: '100',
-    icon: '//img.alicdn.com/tfs/TB1OuuTgL6H8KJjy0FjXXaXepXa-132-126.png',
-  },
 ];
 
 export default class TopicCard extends Component {
@@ -49,53 +41,51 @@ export default class TopicCard extends Component {
 
   render() {
     return (
-      <IceContainer style={styles.container} className="tab-card" title="数据概览">
-        <div className="topic-card">
-          <div style={styles.horizontalWraper}>
+      <div className="topic-card">
+        <IceContainer title="数据概览">
+          <div style={styles.items}>
             {dataSource.map((item, idx) => {
               return (
                 <div
-                  style={styles.topicCardItem}
+                  style={styles.item}
                   className="topic-card-item"
                   key={`card-item-${idx}`}
                 >
                   <div style={styles.cover}>
                     <img alt="icon" src={item.icon} style={styles.icon} />
                   </div>
-                  <div style={styles.content}>
+                  <div style={styles.body}>
                     <div style={styles.meta}>{item.meta}</div>
                     <div style={styles.total}>{item.total}</div>
                     <div style={styles.compareText}>
-                      较前日 <span style={styles.up}>↑+{item.up}</span>
+                      较前日 <span style={styles.up}> ↑ +{item.up}</span>
                     </div>
                     <div style={styles.compareText}>
-                      近7天 <span style={styles.down}>↓-{item.down}</span>
+                      近7天 <span style={styles.down}> ↓ -{item.down}</span>
                     </div>
                   </div>
                 </div>
               );
             })}
           </div>
-        </div>
-      </IceContainer>
+        </IceContainer>
+      </div>
     );
   }
 }
 
 const styles = {
-  container: {
-    margin: '0 0 20px 0',
-  },
-  icon: {
-    width: '44px',
-    height: '41px',
-  },
-  horizontalWraper: {
+  items: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
-  content: {},
+  item: {
+    display: 'flex',
+    flexDirection: 'row',
+    margin: '10px 0',
+  },
   cover: {
     backgroundColor: '#e9f1ff',
     marginRight: '10px',
@@ -105,6 +95,10 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  icon: {
+    width: '44px',
+    height: '40px',
   },
   meta: {
     fontSize: '12px',

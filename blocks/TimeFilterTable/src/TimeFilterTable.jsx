@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Table, Pagination, Radio, Search } from '@icedesign/base';
 import DataBinder from '@icedesign/data-binder';
-import './TimeFilterTable.scss';
+import { enquireScreen } from 'enquire-js';
 
 const { Group: RadioGroup } = Radio;
 
@@ -35,13 +35,25 @@ export default class TimeFilterTable extends Component {
     this.queryCache = {};
     this.state = {
       timeRange: 'day',
+      isMobile: false,
     };
   }
 
   componentDidMount() {
+    this.enquireScreenRegister();
     this.queryCache.page = 1;
     this.fetchData();
   }
+
+  enquireScreenRegister = () => {
+    const mediaCondition = 'only screen and (max-width: 720px)';
+
+    enquireScreen((mobile) => {
+      this.setState({
+        isMobile: mobile,
+      });
+    }, mediaCondition);
+  };
 
   fetchData = () => {
     this.props.updateBindingData('tableData', {
@@ -75,7 +87,7 @@ export default class TimeFilterTable extends Component {
     const tableData = this.props.bindingData.tableData;
 
     return (
-      <div className="time-filter-table" style={styles.timeFilterTable}>
+      <div className="time-filter-table">
         <IceContainer style={styles.filterCard}>
           <div>
             <span>选择活动日期范围：</span>
@@ -98,16 +110,16 @@ export default class TimeFilterTable extends Component {
               onChange={this.onDateChange}
             />
           </div>
-          <div>
-            <Search
-              style={styles.search}
-              type="normal"
-              inputWidth={150}
-              placeholder="搜索"
-              searchText=""
-              onSearch={this.onSearch}
-            />
-          </div>
+          {!this.state.isMobile && (
+            <div>
+              <Search
+                style={styles.search}
+                placeholder="搜索"
+                searchText=""
+                onSearch={this.onSearch}
+              />
+            </div>
+          )}
         </IceContainer>
         <IceContainer style={styles.tableCard}>
           <Table
@@ -149,6 +161,4 @@ const styles = {
   tableCard: {
     padding: '10px',
   },
-  timeFilterTable: {},
-  todo0: { marginLeft: '10px' },
 };

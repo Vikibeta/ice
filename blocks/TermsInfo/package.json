@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/terms-info-block",
-  "version": "0.1.4",
+  "version": "0.1.9",
   "description": "协议信息展示",
   "main": "lib/index.js",
   "files": [
@@ -23,12 +23,12 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
-    "@icedesign/demo-layout": "^0.1.0",
+    "@icedesign/demo-layout": "^0.1.7",
     "@icedesign/skin": "^0.1.2",
     "react": "*",
     "react-dom": "*"
@@ -39,7 +39,7 @@
     "themePackage": "@icedesign/skin",
     "title": "协议信息展示",
     "categories": [
-      "info-display"
+      "信息展示"
     ]
   },
   "scripts": {

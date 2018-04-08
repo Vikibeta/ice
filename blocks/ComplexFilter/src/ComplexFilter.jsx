@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
-import { Select } from '@icedesign/base';
+import { Select, Grid } from '@icedesign/base';
 import './ComplexFilter.scss';
 
-const { Combobox } = Select;
-const { Option } = Select;
+const { Row, Col } = Grid;
+const { Combobox, Option } = Select;
+
 export default class ComplexFilter extends Component {
   static displayName = 'ComplexFilter';
 
@@ -41,7 +42,7 @@ export default class ComplexFilter extends Component {
               key={idx}
               className={`tab-filter-item ${
                 currentFilterType === item.type ? 'active' : ''
-                }`}
+              }`}
               onClick={() => {
                 this.setState({
                   currentFilterType: item.type,
@@ -60,12 +61,14 @@ export default class ComplexFilter extends Component {
               <span
                 className={`filter-belonging-item ${
                   categories.indexOf(cat.type) > -1 ? 'active' : ''
-                  }`}
+                }`}
                 onClick={() => {
                   const isInCategory = categories.indexOf(cat.type) > -1;
                   if (isInCategory) {
                     this.setState({
-                      categories: categories.filter(item => item !== cat.type),
+                      categories: categories.filter(
+                        (item) => item !== cat.type
+                      ),
                     });
                   } else {
                     this.setState({
@@ -80,37 +83,45 @@ export default class ComplexFilter extends Component {
             ))}
           </div>
 
-          <div style={styles.filterForm}>
-            所有者：
-            <Combobox
-              style={styles.combobox}
-              multiple
-              value="卓凌"
-              tags
-              filterLocal={false}
-              onInputBlur={() => console.log('blur')}
-            />
-            活跃用户：
-            <Select style={styles.select}>
-              <Option value="">空</Option>
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="andy">Andy</Option>
-              <Option value="disabled" disabled>
-                Disabled
-              </Option>
-            </Select>
-            好评度：
-            <Select style={styles.select}>
-              <Option value="">空</Option>
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="andy">Andy</Option>
-              <Option value="disabled" disabled>
-                Disabled
-              </Option>
-            </Select>
-          </div>
+          <Row wrap style={styles.filterForm}>
+            <Col xxs={24} s={8} style={styles.col}>
+              所有者：
+              <Combobox
+                style={styles.combobox}
+                multiple
+                value="卓凌"
+                tags
+                filterLocal={false}
+                onInputBlur={() => console.log('blur')}
+              />
+            </Col>
+
+            <Col xxs={24} s={8} style={styles.col}>
+              活跃用户：
+              <Select style={styles.select}>
+                <Option value="">空</Option>
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="andy">Andy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+              </Select>
+            </Col>
+
+            <Col xxs={24} s={8} style={styles.col}>
+              好评度：
+              <Select style={styles.select}>
+                <Option value="">空</Option>
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="andy">Andy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+              </Select>
+            </Col>
+          </Row>
         </IceContainer>
       </div>
     );
@@ -131,10 +142,12 @@ const styles = {
   },
   filterForm: {
     marginTop: '20px',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   combobox: { width: '200px', marginRight: '25px' },
   select: { width: '50px', marginRight: '25px' },
+  col: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '15px',
+  },
 };

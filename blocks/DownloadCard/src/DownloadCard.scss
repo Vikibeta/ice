@@ -1,12 +1,6 @@
 @charset "UTF-8";
 
 .download-card {
-  .column-card-item {
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
-  }
-
   .next-btn-medium {
     padding: 0 8px;
     .next-icon-first {

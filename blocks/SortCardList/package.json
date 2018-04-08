@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/sort-card-list-block",
-  "version": "0.1.3",
+  "version": "0.1.8",
   "description": "拖拽排序卡片列表",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -35,11 +35,11 @@
   },
   "blockConfig": {
     "name": "sort-card-list",
-    "snapshot": "https://gw.alicdn.com/tfs/TB1CmT8jfDH8KJjy1XcXXcpdXXa-2034-830.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1SuIoc_tYBeNjy1XdXXXXyVXa-2346-1078.png",
     "themePackage": "@icedesign/skin",
     "title": "拖拽排序卡片列表",
     "categories": [
-      "list"
+      "列表"
     ]
   },
   "scripts": {

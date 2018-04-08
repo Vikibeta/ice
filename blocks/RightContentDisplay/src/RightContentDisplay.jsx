@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './RightContentDisplay.scss';
 
 export default class RightContentDisplay extends Component {
   static displayName = 'RightContentDisplay';
@@ -12,7 +11,7 @@ export default class RightContentDisplay extends Component {
   render() {
     return (
       <div className="right-content-display" style={styles.container}>
-        <div style={styles.content}>
+        <div className="right-content-display-content" style={styles.content}>
           <div style={styles.col}>
             <img
               src="https://img.alicdn.com/tfs/TB1MgyDjsLJ8KJjy0FnXXcFDpXa-618-1046.png"
@@ -34,7 +33,8 @@ export default class RightContentDisplay extends Component {
 
 const styles = {
   container: {
-    width: '1080px',
+    width: '100%',
+    maxWidth: '1080px',
     margin: '0 auto',
     padding: '80px 0',
   },
@@ -43,22 +43,23 @@ const styles = {
     position: 'relative',
     alignItems: 'center',
     overflow: 'hidden',
-    height: '600px',
   },
   col: {
-    width: '50%',
+    width: '48%',
+    padding: '0 1%',
   },
   title: {
     fontSize: '28px',
     fontWeight: 'bold',
   },
   description: {
-    color: '#666',
+    color: '#999',
     lineHeight: '22px',
   },
   image: {
-    position: 'absolute',
-    top: '20px',
-    width: '40%',
+    width: '100%',
+    margin: '0 auto',
+    display: 'block',
+    maxWidth: '360px',
   },
 };

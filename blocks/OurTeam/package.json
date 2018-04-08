@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/our-team-block",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -34,11 +34,12 @@
   },
   "blockConfig": {
     "name": "our-team",
-    "snapshot": "https://img.alicdn.com/tfs/TB1YabDi8fH8KJjy1XbXXbLdXXa-1906-1210.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1Bw3zauuSBuNjy1XcXXcYjFXa-2168-1460.png",
     "themePackage": "@icedesign/skin",
     "title": "我们的团队",
     "categories": [
-      "info-display"
+      "信息展示",
+      "欢迎页"
     ]
   },
   "scripts": {

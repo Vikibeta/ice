@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/forget-password-form-block",
-  "version": "0.1.5",
+  "version": "0.1.11",
   "description": "忘记密码",
   "files": [
     "src/",
@@ -22,9 +22,9 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
-    "@icedesign/form-binder": "^0.1.0",
+    "@icedesign/form-binder": "^0.1.3",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
@@ -36,11 +36,11 @@
   },
   "blockConfig": {
     "name": "forget-password-form",
-    "snapshot": "https://img.alicdn.com/tfs/TB1TjBilvDH8KJjy1XcXXcpdXXa-1102-554.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB11ywwc_tYBeNjy1XdXXXXyVXa-2322-398.png",
     "themePackage": "@icedesign/skin",
     "title": "忘记密码",
     "categories": [
-      "form"
+      "表单"
     ]
   },
   "scripts": {

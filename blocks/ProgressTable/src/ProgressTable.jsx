@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { Table, Progress, Pagination } from '@icedesign/base';
 import IceContainer from '@icedesign/container';
-import './ProgressTable.scss';
 
 const getTableData = () => {
   return Array.from({ length: 10 }).map((item, index) => {
@@ -27,7 +26,7 @@ export default class ProgressTable extends Component {
     };
   }
 
-  renderCellProgress = value => (
+  renderCellProgress = (value) => (
     <Progress showInfo={false} percent={parseInt(value, 10)} />
   );
 
@@ -42,19 +41,19 @@ export default class ProgressTable extends Component {
       <div className="progress-table">
         <IceContainer className="tab-card" title="本月最活跃金主">
           <Table
-            hasBorder
             getRowClassName={(record, index) => {
               return `progress-table-tr progress-table-tr${index}`;
             }}
             dataSource={this.state.dataSource}
           >
-            <Table.Column title="店铺名称" dataIndex="name" />
-            <Table.Column title="成交金额" dataIndex="total" />
-            <Table.Column title="成交单数" dataIndex="count" />
+            <Table.Column title="店铺名称" dataIndex="name" width={200} />
+            <Table.Column title="成交金额" dataIndex="total" width={200} />
+            <Table.Column title="成交单数" dataIndex="count" width={100} />
             <Table.Column
               title=""
               dataIndex="progress"
               cell={this.renderCellProgress}
+              width={200}
             />
           </Table>
           <div style={styles.paginationWrapper}>

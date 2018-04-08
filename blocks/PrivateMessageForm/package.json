@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/private-message-form-block",
-  "version": "0.1.4",
+  "version": "0.1.9",
   "description": "私有消息表单",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -35,11 +35,11 @@
   },
   "blockConfig": {
     "name": "private-message-form",
-    "snapshot": "https://img.alicdn.com/tfs/TB1H5Q1lhrI8KJjy0FpXXb5hVXa-1234-784.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1KNsWcuOSBuNjy0FdXXbDnVXa-880-512.png",
     "themePackage": "@icedesign/skin",
     "title": "私有消息表单",
     "categories": [
-      "form"
+      "表单"
     ]
   },
   "scripts": {

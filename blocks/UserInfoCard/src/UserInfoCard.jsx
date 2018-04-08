@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Balloon, Icon } from '@icedesign/base';
-import './UserInfoCard.scss';
 
 export default class UserInfoCard extends Component {
   static displayName = 'UserInfoCard';
@@ -92,11 +91,11 @@ const styles = {
   },
   name: {
     padding: '0 10px',
-    margin: '0',
+    margin: 0,
   },
   deptName: {
     padding: '0 10px',
-    margin: '0',
+    margin: 0,
     fontSize: '12px',
   },
   body: {

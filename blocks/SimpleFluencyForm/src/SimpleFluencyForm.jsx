@@ -1,10 +1,11 @@
-
-
 import React, { Component } from 'react';
 import IceContainer from '@icedesign/container';
 import { Step, Grid, Input, Button } from '@icedesign/base';
-import { FormBinderWrapper, FormBinder, FormError } from '@icedesign/form-binder';
-import './SimpleFluencyForm.scss';
+import {
+  FormBinderWrapper,
+  FormBinder,
+  FormError,
+} from '@icedesign/form-binder';
 
 const { Row, Col } = Grid;
 const telPattern = /^(1[\d]{1}[\d]{9})|(((400)-(\d{3})-(\d{4}))|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)$|^([ ]?)$/;
@@ -12,11 +13,9 @@ const telPattern = /^(1[\d]{1}[\d]{9})|(((400)-(\d{3})-(\d{4}))|^((\d{7,8})|(\d{
 export default class SimpleFluencyForm extends Component {
   static displayName = 'SimpleFluencyForm';
 
-  static propTypes = {
-  };
+  static propTypes = {};
 
-  static defaultProps = {
-  };
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -33,21 +32,13 @@ export default class SimpleFluencyForm extends Component {
 
   // ICE: React Component 的生命周期
 
-  componentWillMount() {
+  componentWillMount() {}
 
-  }
+  componentDidMount() {}
 
-  componentDidMount() {
+  componentWillReceiveProps() {}
 
-  }
-
-  componentWillReceiveProps() {
-
-  }
-
-  componentWillUnmount() {
-
-  }
+  componentWillUnmount() {}
 
   formChange = (newValue) => {
     this.setState({
@@ -68,55 +59,92 @@ export default class SimpleFluencyForm extends Component {
     if (step === 0) {
       const { username, email, phone, address } = this.state.formValue;
       const initValue = {
-        username, email, phone, address,
+        username,
+        email,
+        phone,
+        address,
       };
       return (
         <IceContainer style={styles.form}>
           <FormBinderWrapper
-            ref={(form) => { this.form = form; }}
+            ref={(form) => {
+              this.form = form;
+            }}
             value={initValue}
             onChange={this.formChange}
           >
             <div>
               <Row style={styles.formRow}>
-                <Col fixedSpan={8} style={styles.formLabel}>
+                <Col xxs="5" s="5" l="7" style={styles.formLabel}>
                   <span>姓名：</span>
                 </Col>
-                <Col span={12}>
-                  <FormBinder required message="必填项"><Input name="username" /></FormBinder>
+                <Col s="14" l="12">
+                  <FormBinder required message="必填项">
+                    <Input
+                      name="username"
+                      size="large"
+                      style={{ width: '100%' }}
+                    />
+                  </FormBinder>
                   <div style={styles.formErrorWrapper}>
                     <FormError name="username" />
                   </div>
                 </Col>
               </Row>
               <Row style={styles.formRow}>
-                <Col fixedSpan={8} style={styles.formLabel}>
+                <Col xxs="5" s="5" l="7" style={styles.formLabel}>
                   邮箱：
                 </Col>
-                <Col span={12}>
-                  <FormBinder type="email" required message="邮箱不合法"><Input name="email" /></FormBinder>
+                <Col s="14" l="12">
+                  <FormBinder type="email" required message="邮箱不合法">
+                    <Input
+                      name="email"
+                      size="large"
+                      style={{ width: '100%' }}
+                    />
+                  </FormBinder>
                   <div style={styles.formErrorWrapper}>
                     <FormError name="email" />
                   </div>
                 </Col>
               </Row>
               <Row style={styles.formRow}>
-                <Col fixedSpan={8} style={styles.formLabel}>
+                <Col xxs="5" s="5" l="7" style={styles.formLabel}>
                   电话：
                 </Col>
-                <Col span={12}>
-                  <FormBinder required message="请输入合法的电话号码" pattern={telPattern} triggerType="onBlur"><Input name="phone" /></FormBinder>
+                <Col s="14" l="12">
+                  <FormBinder
+                    required
+                    message="请输入合法的电话号码"
+                    pattern={telPattern}
+                    triggerType="onBlur"
+                  >
+                    <Input
+                      name="phone"
+                      size="large"
+                      style={{ width: '100%' }}
+                    />
+                  </FormBinder>
                   <div style={styles.formErrorWrapper}>
                     <FormError name="phone" />
                   </div>
                 </Col>
               </Row>
               <Row style={styles.formRow}>
-                <Col fixedSpan={8} style={styles.formLabel}>
+                <Col xxs="5" s="5" l="7" style={styles.formLabel}>
                   地址：
                 </Col>
-                <Col span={12}>
-                  <FormBinder><Input required message="必填" multiple name="address" /></FormBinder>
+                <Col s="14" l="12">
+                  <FormBinder>
+                    <Input
+                      required
+                      message="必填"
+                      multiple
+                      name="address"
+                      size="large"
+                      style={{ width: '100%' }}
+                    />
+                  </FormBinder>
                   <div style={styles.formErrorWrapper}>
                     <FormError name="address" />
                   </div>
@@ -124,8 +152,10 @@ export default class SimpleFluencyForm extends Component {
               </Row>
 
               <Row>
-                <Col fixedOffset={8}>
-                  <Button onClick={this.nextStep} type="primary">下一步</Button>
+                <Col offset={7}>
+                  <Button onClick={this.nextStep} type="primary">
+                    下一步
+                  </Button>
                 </Col>
               </Row>
             </div>
@@ -149,7 +179,7 @@ export default class SimpleFluencyForm extends Component {
 
   render() {
     return (
-      <div className="simple-fluency-form" style={styles.simpleFluencyForm}>
+      <div className="simple-fluency-form">
         <IceContainer>
           <Step current={this.state.step} type="dot">
             <Step.Item key={0} title="填写信息" />
@@ -163,4 +193,20 @@ export default class SimpleFluencyForm extends Component {
   }
 }
 
-const styles = { formLabel: { textAlign: 'right', lineHeight: '1.7rem', paddingRight: '10px' }, formRow: { marginBottom: '20px' }, form: { padding: '40px 0 20px' }, formErrorWrapper: { marginTop: '5px' }, simpleFluencyForm: {} };
+const styles = {
+  form: {
+    padding: '40px 20px',
+  },
+  formLabel: {
+    textAlign: 'right',
+    lineHeight: '1.7rem',
+    paddingRight: '10px',
+  },
+  formRow: {
+    marginBottom: '20px',
+  },
+  formErrorWrapper: {
+    marginTop: '5px',
+  },
+  simpleFluencyForm: {},
+};

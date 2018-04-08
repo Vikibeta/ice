@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/brand-display-block",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "品牌列表展示",
   "main": "lib/index.js",
   "files": [
@@ -23,8 +23,9 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/img": "^0.1.0",
+    "enquire-js": "^0.1.2",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
@@ -35,11 +36,12 @@
   },
   "blockConfig": {
     "name": "brand-display",
-    "snapshot": "https://img.alicdn.com/tfs/TB1XIooihrI8KJjy0FpXXb5hVXa-1802-874.png",
+    "snapshot": "https://img.alicdn.com/tfs/TB1_IMuaAyWBuNjy0FpXXassXXa-2306-1244.png",
     "themePackage": "@icedesign/skin",
     "title": "品牌列表展示",
     "categories": [
-      "info-display"
+      "信息展示",
+      "欢迎页"
     ]
   },
   "scripts": {

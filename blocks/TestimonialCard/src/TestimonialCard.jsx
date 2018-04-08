@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import IceContainer from '@icedesign/container';
-import './TestimonialCard.scss';
+import { Grid } from '@icedesign/base';
+
+const { Row, Col } = Grid;
 
 const generatorData = (count) => {
   return Array.from({ length: count }).map(() => {
@@ -26,39 +27,35 @@ export default class TestimonialCard extends Component {
   render() {
     const data = generatorData(3);
     return (
-      <div className="testimonial-card">
-        <IceContainer style={styles.container}>
-          <div style={styles.items}>
+      <div style={styles.container}>
+        <div style={styles.content}>
+          <Row wrap gutter={20}>
             {data.map((item, index) => {
-              const rowLastItem =
-                (index + 1) % 3 === 0 ? styles.rowLastItem : {};
               return (
-                <div
-                  key={index}
-                  style={{ ...styles.item, ...rowLastItem }}
-                  className="item"
-                >
-                  <div style={styles.infoBox}>
-                    <img
-                      style={styles.avatar}
-                      src={item.imgUrl}
-                      alt={item.name}
-                    />
-                    <div style={styles.baseInfo}>
-                      <h5 style={styles.name}>{item.name}</h5>
-                      <p style={styles.company}>{item.company}</p>
+                <Col xxs="24" s="8" l="8" key={index}>
+                  <div style={styles.item}>
+                    <div style={styles.infoBox}>
+                      <img
+                        style={styles.avatar}
+                        src={item.imgUrl}
+                        alt={item.name}
+                      />
+                      <div style={styles.baseInfo}>
+                        <h5 style={styles.name}>{item.name}</h5>
+                        <p style={styles.company}>{item.company}</p>
+                      </div>
                     </div>
+                    <p style={styles.description}>
+                      “
+                      {item.description}
+                      ”
+                    </p>
                   </div>
-                  <p style={styles.description}>
-                    “
-                    {item.description}
-                    ”
-                  </p>
-                </div>
+                </Col>
               );
             })}
-          </div>
-        </IceContainer>
+          </Row>
+        </div>
       </div>
     );
   }
@@ -69,23 +66,19 @@ const styles = {
     background:
       'url(https://img.alicdn.com/tfs/TB1JGoDi3vD8KJjy0FlXXagBFXa-5040-2811.png)',
     borderRadius: 0,
-  },
-  items: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    width: '100%',
     padding: '80px 0',
-    width: '1080px',
+  },
+  content: {
+    maxWidth: '1080px',
     margin: '0 auto',
+    overflow: 'hidden',
   },
   item: {
-    width: '30%',
+    marginBottom: '20px',
     padding: '20px 30px 60px',
-    marginRight: '5%',
     background: '#fff',
     borderRadius: '6px',
-  },
-  rowLastItem: {
-    marginRight: 0,
   },
   infoBox: {
     display: 'flex',
@@ -101,7 +94,7 @@ const styles = {
     height: '64px',
   },
   name: {
-    margin: '0',
+    margin: 0,
     fontSize: '15px',
     fontWeight: 'bold',
   },

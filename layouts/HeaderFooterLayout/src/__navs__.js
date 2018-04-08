@@ -3,48 +3,25 @@ const autoGenHeaderNavs = [
   {
     text: '首页',
     to: '/',
+    icon: 'home',
   },
   {
     text: '反馈',
     to: 'https://github.com/alibaba/ice',
     external: true,
     newWindow: true,
+    icon: 'message',
   },
   {
     text: '帮助',
     to: 'https://alibaba.github.io/ice',
     external: true,
     newWindow: true,
+    icon: 'bangzhu',
   },
 ];
 
-const autoGenAsideNavs = [
-  {
-    text: '首页',
-    to: '/',
-    icon: 'store',
-  },
-  {
-    text: '一级目录示例',
-    to: '/example1',
-    icon: 'nav-list',
-  },
-  {
-    text: '二级目录示例',
-    to: '/example2',
-    icon: 'compass',
-    children: [
-      {
-        text: '二级子目录1',
-        to: '/example21',
-      },
-      {
-        text: '二级子目录2',
-        to: '/example22',
-      },
-    ],
-  },
-];
+const autoGenAsideNavs = [];
 // <!-- auto generated navs end -->
 
 const customHeaderNavs = [];
@@ -55,7 +32,9 @@ function transform(navs) {
   return [...navs];
 }
 
-export default {
-  headerNavs: transform([...autoGenHeaderNavs, ...customHeaderNavs]),
-  asideNavs: transform([...autoGenAsideNavs, ...customAsideNavs]),
-};
+export const headerNavs = transform([
+  ...autoGenHeaderNavs,
+  ...customHeaderNavs,
+]);
+
+export const asideNavs = transform([...autoGenAsideNavs, ...customAsideNavs]);

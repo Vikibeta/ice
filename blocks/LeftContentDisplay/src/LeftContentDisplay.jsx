@@ -1,18 +1,37 @@
 import React, { Component } from 'react';
-import './LeftContentDisplay.scss';
+import { enquireScreen } from 'enquire-js';
 
 export default class LeftContentDisplay extends Component {
   static displayName = 'LeftContentDisplay';
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isMobile: false,
+    };
   }
 
+  componentDidMount() {
+    this.enquireScreenRegister();
+  }
+
+  enquireScreenRegister = () => {
+    const mediaCondition = 'only screen and (max-width: 720px)';
+
+    enquireScreen((mobile) => {
+      this.setState({
+        isMobile: mobile,
+      });
+    }, mediaCondition);
+  };
+
   render() {
+    const contentStyle = {
+      height: this.state.isMobile ? '300px' : '600px',
+    };
     return (
-      <div className="left-content-display" style={styles.container}>
-        <div style={styles.content}>
+      <div style={styles.container}>
+        <div style={{ ...styles.content, ...contentStyle }}>
           <div style={styles.col}>
             <h2 style={styles.title}>功能描述</h2>
             <p style={styles.description}>
@@ -34,7 +53,8 @@ export default class LeftContentDisplay extends Component {
 
 const styles = {
   container: {
-    width: '1080px',
+    width: '100%',
+    maxWidth: '1080px',
     margin: '0 auto',
     padding: '80px 0',
   },
@@ -43,10 +63,10 @@ const styles = {
     position: 'relative',
     alignItems: 'center',
     overflow: 'hidden',
-    height: '600px',
   },
   col: {
     width: '50%',
+    padding: '0 20px',
   },
   title: {
     fontSize: '28px',

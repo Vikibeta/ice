@@ -1,6 +1,6 @@
 {
   "name": "@icedesign/data-display-block",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "",
   "files": [
     "src/",
@@ -22,7 +22,7 @@
     "ice-block"
   ],
   "dependencies": {
-    "@icedesign/base": "^0.1.0",
+    "@icedesign/base": "^0.2.0",
     "@icedesign/container": "^0.1.0",
     "prop-types": "^15.5.8"
   },
@@ -39,7 +39,7 @@
     "themePackage": "@icedesign/skin",
     "title": "数据展示",
     "categories": [
-      "data-display"
+      "数据展示"
     ]
   },
   "scripts": {
