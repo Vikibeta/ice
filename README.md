@@ -1,48 +1,112 @@
+[English](./README.en-US.md) | 简体中文
+
 <p align="center">
-  <a href="https://alibaba.github.io/ice">
-    <img alt="飞冰" src="https://img.alicdn.com/tfs/TB1czpfiFOWBuNjy0FiXXXFxVXa-504-132.png" width="200">
+  <a href="https://ice.work">
+    <img alt="飞冰（ICE）" src="https://img.alicdn.com/tfs/TB1gOdQRCrqK1RjSZK9XXXyypXa-192-192.png" width="96">
   </a>
 </p>
-<p align="center">海量可复用物料，通过 GUI 工具极速构建中后台应用</p>
 
-<p align="center">
-  <a href="https://github.com/alibaba/ice/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg"></a>
-  <a href="https://github.com/alibaba/ice"><img src="https://img.shields.io/badge/developing%20with-ICE-2077ff.svg"></a>
-</p>
+<h1 align="center">飞冰（ICE）</h1>
 
----
+<div align="center">
 
-:zap: **[海量高质量物料](https://alibaba.github.io/ice/#/block)：** 每周有新增，专业视觉设计，海量物料满足你开发之所需
+简单而友好的前端研发体系
 
-:dart: **[GUI 工具](https://alibaba.github.io/ice/#/iceworks)：** 零配置的工程整合，物料可视化一键导入复用
+<a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license" /></a>
+<a href="https://travis-ci.org/alibaba/ice"><img src="https://travis-ci.org/alibaba/ice.svg?branch=master" alt="Build Status" /></a>
+<a href="https://codecov.io/gh/alibaba/ice"><img src="https://img.shields.io/codecov/c/github/alibaba/ice/master.svg" alt="Test Coverage" /></a>
+<a href="https://github.com/alibaba/ice/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome" /></a>
+<a href="https://gitter.im/alibaba/ice"><img src="https://badges.gitter.im/alibaba/ice.svg" alt="Gitter" /></a>
 
-:art: **[ICE DESIGN 设计语言](https://alibaba.github.io/ice/design.html)：** “冻”人的中后台设计语言
+<div align="center">
+  <img src="https://img.alicdn.com/tfs/TB1lMLdtXY7gK0jSZKzXXaikpXa-2763-1449.png" width="1000" />
+</div>
+</div>
 
-## 项目开发和使用方式
+## 特性
 
-下载 [Iceworks](https://alibaba.github.io/ice/#/iceworks) 并创建项目，然后创建页面进行物料搭建组合，之后可以打开编辑器进行二次编码，完成之后点击构建即可打包出可用的 JS、CSS bundle。
+- :fire:**可视化开发**：通过 IDE 简化前端工程复杂度，同时通过适配器可接入不同的项目工程进行可视化管理，定制专属的前端工作台
+- :100:**丰富的物料**：基于物料拼装提高项目开发效率，同时提供丰富的 React/Vue 物料
+- :tophat:**最佳实践**：结合丰富的经验沉淀出的项目开发最佳实践，包括目录结构、开发调试、路由配置、状态管理等
+- :whale:**自定义物料**：通过物料开发者工具快速开发构建私有物料体系
 
-详细步骤请参见文档：[Iceworks 快速上手](https://alibaba.github.io/ice/#/docs/iceworks)。
+更多特性请参考站点 [ice.work](https://ice.work)。
 
-## 物料开发和发布方式
+## 快速开始
 
-首先 clone 当前仓库，开发完成之后提交 PR 合并后执行下面相关命令：
+为了支持不同的用户群体，我们提供了 IDE 和 CLI 两种使用方式，具体如下：
 
-- `npm run bootstrap` 初始化 Lerna
-- `npm run lint` 代码 Lint 风格检查
-- `npm run publish` 代码发布
+#### 使用 IDE [推荐]
 
-## README 徽章
+> 以 macOS 平台为例。
 
-如果你的项目正在使用飞冰，可以将飞冰徽章 [![ice](https://img.shields.io/badge/developing%20with-ICE-2077ff.svg)](https://github.com/alibaba/ice) 添加到你的 README 中：
+1. 下载 [iceworks IDE for macOS](https://iceworks.oss-cn-hangzhou.aliyuncs.com/mac/iceworks-setup.dmg)；
+2. 双击下载的 .dmg 文件；
+3. 拖动 iceworks 的图标到 `Applications` 文件夹；
+4. 进入应用程序文件夹，双击 iceworks 启动；
+5. 在 iceworks 的欢迎界面点击 `+` 号按钮开始创建项目。
+
+#### 使用命令行工具
+
+```bash
+# 安装 CLI 工具
+$ npm install iceworks -g
+
+# 新建目录
+$ mkdir iceapp & cd iceapp
+
+# 通过模板初始化项目
+$ iceworks init
 ```
-[![ice](https://img.shields.io/badge/developing%20with-ICE-2077ff.svg)](https://github.com/alibaba/ice)
-```
+
+## 生态
+
+|    项目         |    版本                                 |     文档    |   描述       |
+|----------------|-----------------------------------------|--------------|-----------|
+| [iceworks]     | [![iceworks-cli-status]][iceworks-cli-package] | [docs][iceworks-docs] |面向企业级中后台领域的 IDE|
+| [ice-scripts] | [![ice-scripts-status]][ice-scripts-package] | [docs][ice-scripts-docs] |基于 webpack 的高可配置开发构建工具|
+| [icestore] | [![icestore-status]][icestore-package] | [docs][icestore-docs] |基于 React Hooks 的轻量级状态管理方案|
+| [icestark] | [![icestark-status]][icestark-package] | [docs][icestark-docs] |面向大型应用的微前端解决方案|
+| [react-materials] | / | [docs][react-materials-docs] |由官方提供的丰富的高质量 React 物料|
+| [vue-materials] | / | [docs][vue-materials-docs] |由社区维护的高质量 Vue 物料|
+
+[iceworks]: https://github.com/alibaba/ice
+[ice-scripts]: https://github.com/ice-lab/ice-scripts
+[icestore]: https://github.com/ice-lab/icestore
+[icestark]: https://github.com/ice-lab/icestark
+[react-materials]: https://github.com/ice-lab/react-materials
+[vue-materials]: https://github.com/ice-lab/vue-materials
+
+[iceworks-cli-status]: https://img.shields.io/npm/v/iceworks.svg
+[ice-scripts-status]: https://img.shields.io/npm/v/ice-scripts.svg
+[icestore-status]: https://img.shields.io/npm/v/@ice/store.svg
+[icestark-status]: https://img.shields.io/npm/v/@ice/stark.svg
+
+[iceworks-cli-package]: https://npmjs.com/package/iceworks
+[ice-scripts-package]: https://npmjs.com/package/ice-scripts
+[icestore-package]: https://npmjs.com/package/@ice/store
+[icestark-package]: https://npmjs.com/package/@ice/stark
+
+[vue-materials-docs]: https://ice.work/block?type=vue
+[react-materials-docs]: https://ice.work/scaffold
+[iceworks-docs]: https://ice.work/docs/iceworks/about
+[ice-scripts-docs]: https://ice.work/docs/cli/about
+[icestark-docs]: https://ice.work/docs/icestark/guide/about
+[icestore-docs]: https://github.com/ice-lab/icestore#icestore
+
+## 贡献代码
+
+参考文档 [CONTRIBUTING.md](/.github/CONTRIBUTING.md)
 
 ## 社区
 
-扫码进入飞冰钉钉群（加入钉钉群即可实时交流、反馈）
+| 钉钉群                               | GitHub issues |  Gitter |
+|-------------------------------------|--------------|---------|
+| <a href="https://ice.alicdn.com/assets/images/qrcode.png"><img src="https://ice.alicdn.com/assets/images/qrcode.png" width="150" /></a> | [issues]     | [gitter]|
 
-* 飞冰 ❶ (已满）
-* 飞冰 ❷ 
-<img alt="Join the chat at dingtalk" src="https://gw.alicdn.com/tfs/TB1iVfbe1SSBuNjy0FlXXbBpVXa-640-880.jpg" width="200">
+[issues]: https://github.com/alibaba/ice/issues
+[gitter]: https://gitter.im/alibaba/ice
+
+## License
+
+[MIT](/LICENSE)
